@@ -1,0 +1,12 @@
+C:\Users\Marcelo\source\Workspaces\SistemaSoVenda\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\bin\Debug\ExemploArquitetura.Commands.dll
+C:\Users\Marcelo\source\Workspaces\SistemaSoVenda\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\bin\Debug\ExemploArquitetura.Commands.pdb
+C:\Users\Marcelo\source\Workspaces\SistemaSoVenda\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.csprojResolveAssemblyReference.cache
+C:\Users\Marcelo\source\Workspaces\SistemaSoVenda\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.csproj.CoreCompileInputs.cache
+C:\Users\Marcelo\source\Workspaces\SistemaSoVenda\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.dll
+C:\Users\Marcelo\source\Workspaces\SistemaSoVenda\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.pdb
+D:\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\bin\Debug\ExemploArquitetura.Commands.dll
+D:\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\bin\Debug\ExemploArquitetura.Commands.pdb
+D:\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.csprojResolveAssemblyReference.cache
+D:\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.csproj.CoreCompileInputs.cache
+D:\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.dll
+D:\Exemplos\ExemproArquitetura\ExemploArquitetura.Commands\obj\Debug\ExemploArquitetura.Commands.pdb

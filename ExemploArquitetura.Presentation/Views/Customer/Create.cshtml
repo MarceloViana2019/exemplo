@@ -1,0 +1,64 @@
+﻿@model ExemploArquitetura.Commands.Inputs.CustomerRegisterCommand
+
+
+<h2>Cadastro de Cliente</h2>
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <fieldset>
+            <legend>Endereço</legend>
+
+            <div class="col-md-4 form-group">
+                @Html.LabelFor(x => x.Address.StateCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(x => x.Address.StateCode, new SelectList(ViewBag.States, "Code", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.StateCode, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.Address.CityCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(x => x.Address.CityCode, new SelectList(Enumerable.Empty<object>(), "Code", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.CityCode, "", new { @class = "text-danger" })
+                @if (Model != null)
+        {
+            @Html.HiddenFor(x => x.Address.CityCode, new { @id = "hiddenCityCode" })
+}
+
+            </div>
+
+            <div class="col-md-4 form-group">
+                @Html.LabelFor(x => x.Address.Street, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.Address.Street, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.Street, "", new { @class = "text-danger" })
+            </div>
+
+        </fieldset>
+
+        <div class="form-group">
+            <div class="col-md-offset-10 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+    <div>
+        @Html.ActionLink("Voltar", "Index", "Home")
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/customer")
+}

@@ -1,0 +1,103 @@
+﻿@model ExemploArquitetura.Commands.Inputs.ServiceRegisterCommand
+
+
+<h2>Cadastro de Serviços</h2>
+
+
+@using (Html.BeginForm())
+{
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control datePicker" } })
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <fieldset>
+        <legend>Clientes</legend>
+        <div class="col-md-4 form-group">
+            @Html.DropDownListFor(x => x.CustomerId, new SelectList(ViewBag.Customers, "Id", "Name"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.CustomerId, "", new { @class = "text-danger" })
+        </div>
+
+        <legend>Fornecedores</legend>
+        <div class="col-md-4 form-group">
+            @Html.DropDownListFor(x => x.ProviderId, new SelectList(ViewBag.Providers, "Id", "Name"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.ProviderId, "", new { @class = "text-danger" })
+        </div>
+
+    </fieldset>
+
+        <fieldset>
+            <legend>Endereço</legend>
+
+            <div class="col-md-4 form-group">
+                @Html.LabelFor(x => x.Address.StateCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(x => x.Address.StateCode, new SelectList(ViewBag.States, "Code", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.StateCode, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.Address.CityCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(x => x.Address.CityCode, new SelectList(Enumerable.Empty<object>(), "Code", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.CityCode, "", new { @class = "text-danger" })
+                @if (Model != null)
+                {
+                    @Html.HiddenFor(x => x.Address.CityCode, new { @id = "hiddenCityCode" })
+                }
+
+            </div>
+
+            <div class="col-md-4 form-group">
+                @Html.LabelFor(x => x.Address.Street, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.Address.Street, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.Street, "", new { @class = "text-danger" })
+            </div>
+
+        </fieldset>
+
+        <div class="form-group">
+            <div class="col-md-offset-10 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/customer")
+}

@@ -1,0 +1,79 @@
+﻿@model ExemploArquitetura.Commands.Inputs.ReportServiceFilterCommand
+
+
+<h2>Relatório de Serviços</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <fieldset>
+            <legend>Data de Atendimento</legend>
+            <div class="form-group">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.DateStart, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.DateStart, new { htmlAttributes = new { @class = "form-control datePicker" } })
+                    @Html.ValidationMessageFor(model => model.DateStart, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.DateEnd, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.DateEnd, new { htmlAttributes = new { @class = "form-control datePicker" } })
+                    @Html.ValidationMessageFor(model => model.DateEnd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </fieldset>
+
+            @*<fieldset>
+            <legend>Clientes</legend>
+            <div class="col-md-4 form-group">
+                @Html.DropDownListFor(x => x.CustomerId, new SelectList(ViewBag.Customers, "Id", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.CustomerId, "", new { @class = "text-danger" })
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Endereço</legend>
+
+            <div class="col-md-4 form-group">
+                @Html.LabelFor(x => x.Address.StateCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(x => x.Address.StateCode, new SelectList(ViewBag.States, "Code", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.StateCode, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.Address.CityCode, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(x => x.Address.CityCode, new SelectList(Enumerable.Empty<object>(), "Code", "Name"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.CityCode, "", new { @class = "text-danger" })
+                @if (Model != null)
+                {
+                    @Html.HiddenFor(x => x.Address.CityCode, new { @id = "hiddenCityCode" })
+                }
+
+            </div>
+
+            <div class="col-md-4 form-group">
+                @Html.LabelFor(x => x.Address.Street, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.Address.Street, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address.Street, "", new { @class = "text-danger" })
+            </div>
+
+        </fieldset>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-10 col-md-10">
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                </div>
+            </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/customer")
+}

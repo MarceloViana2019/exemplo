@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ExemploArquitetura.Commands.Results.ProviderCommandResult>
+
+@{
+    ViewBag.Title = "Fornecedores";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Fornecedor", "Create")
+</p>
+<div>
+    @Html.ActionLink("Voltar", "Index", "Home")
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Visualizar", "Details", new { id=item.Id }) |*@
+                @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

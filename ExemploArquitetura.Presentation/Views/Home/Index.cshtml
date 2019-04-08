@@ -1,0 +1,88 @@
+﻿@model ExemploArquitetura.Commands.Results.MonitorCommandResult
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<H3>
+    Olá @User.Identity.Name
+</H3>
+
+<div class="form-group row">
+    <div class="col-md-10">
+        <p>
+            @Html.ActionLink("Registro de Cliente", "Create", "Customer")
+            @Html.ActionLink("Registro de Serviço", "Create", "Service")
+            @Html.ActionLink("Registro de Fornecedores", "Create", "Provider")
+            @Html.ActionLink("Relatório", "Report", "Service")
+        </p>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-10">
+        <p>
+            <a href="@Url.Action("logout", "home")">Sair</a>
+        </p>
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Clientes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Customers.OrderBy(c => c.Name))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fornecedores</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Providers.OrderBy(p => p.Name))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Servicos</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Services.OrderBy(s => s.Type))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
